@@ -13,14 +13,21 @@ function saveToDos() {
 }
 
 function handleDelete(event) {
-    const li = event.target.parentElement;
+    const li = event.target.parentElement; 
+    // x버튼의 부모 찾기
+    // li.id 하면 부모의 id 까지 알 수 있다.
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    saveToDos();
+    //li.id 는 string이다, Time.now() 는 Number. 따라서 서로 같지 않음 -> parseInt()사용
+    
     li.remove();
 }
 
-function paintToDo(newTodo) {
+function paintToDo(newTodoObj) {
     const li = document.createElement("li");
+    li.id = newTodoObj.id; // id에  key 추가하기
     const span = document.createElement("span");
-    span.innerText = newTodo;
+    span.innerText = newTodoObj.text; // 오브젝트안에 텍스트 불러오기
     
     const button = document.createElement("button");
     button.innerText = "X";
@@ -33,9 +40,15 @@ function paintToDo(newTodo) {
 
 function handleToDoSubmit(event) {
     event.preventDefault();
-    paintToDo(toDoInput.value);
-    toDos.push(toDoInput.value);
+    const newTodo = toDoInput.value;
     toDoInput.value = "";
+    const newTodoObj = {
+        text:newTodo,
+        id: Date.now(),
+    }
+    
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
     saveToDos();
 }
 
@@ -49,4 +62,8 @@ if(savedToDos !== null) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
     parsedToDos.forEach((item) => paintToDo(item));
+}
+
+function todoFilter() {
+
 }

@@ -1,7 +1,4 @@
 // 01.jpg ~ 06.jpg
-
-
-
 const imgs = [
     "00.jpg",
     "01.jpg",
