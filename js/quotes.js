@@ -55,5 +55,5 @@ function randomQuotes() {
     author.innerText = todayQuote.author;
 }
 
-setInterval(randomQuotes, 1000);
-//randomQuotes();
+randomQuotes();
+setInterval(randomQuotes, 10000);

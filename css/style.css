@@ -1,13 +1,56 @@
+@import "reset.css";
+
+body {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
 .hidden {
-    display: none;
+  display: none;
+}
+
+.content {
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 64px 24px 24px 24px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#greeting {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#clock {
+  font-size: 72px;
+  font-weight: 700;
 }
 
 #quote span {
-    display: block;
-    overflow: hidden;
+  display: block;
+  overflow: hidden;
 }
 
 img {
-    width: 100%;
-    height:auto;
+  width: 100%;
+  height: auto;
+}
+
+#quote span {
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+#quote span:last-child {
+  font-size: 11px;
 }
