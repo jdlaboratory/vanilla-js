@@ -1,0 +1,13 @@
+.hidden {
+    display: none;
+}
+
+#quote span {
+    display: block;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height:auto;
+}
